@@ -1,0 +1,18 @@
+import xml.etree.ElemenntTee as Et
+
+tree = ET.parse('emplyee.xml')
+root = tree.getroot()
+name = root.find('name')
+print(name.text)
+
+expertise = root.find('expertise')        #Bước 4 
+print(expertise.attrib['name']) 
+ 
+city = root.find('city')                  #Bước 5 
+print(city.text) 
+ 
+newexpertise = ET.Element('expertise') 
+newexpertise.attrib['name'] = 'XML'       #Bước 6 
+root.append(newexpertise) 
+ 
+tree.write('updated.xml') 
